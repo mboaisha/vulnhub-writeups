@@ -1,11 +1,13 @@
 # Mr Robot
 
+**SPOILERS AHEAD. YOU HAVE BEEN WARNED**
+
 **Difficulty**: Easy
 **Link**: https://www.vulnhub.com/entry/mr-robot-1,151/
 
 ## Writeup
 
-It's a good practice to run vulnerable virtual machines in an isolated network.Away from production and/or sensitive servers and workstations.
+It's a good practice to run vulnerable virtual machines in an isolated network. Away from production and/or sensitive servers and workstations.
 
 As such, it is best to host the VMs in "Host-Only" Mode in the same subnet.
 
@@ -93,3 +95,31 @@ The results tell us two things:
 * There is a [robots.txt](https://www.robotstxt.org/robotstxt.html) file
 * There is very possibly a Wordpress instance hosted
 
+I decide to check for both before proceeding.
+
+Turns out there is a /robots.txt file. Hold on, there is more to it.
+
+The content of the text file is:
+
+```
+User-agent: *
+fsocity.dic
+key-1-of-3.txt
+```
+
+*wget* the files and examine them. Turns out the text file does contain the key:
+```
+073403c8a58a1f80d943455fb30724b9
+```
+
+Neat, first key is down. But what is fsocity.dic?
+
+using *cat* shows a **HUGE** of what appears to be a wordlist. I noticed some duplicates so I decided to clean up the wordlist:
+
+```
+uniq fsocity.dic > fsocity1.txt
+```
+
+Now we look into the possible Wordpress instance, and what do you know, there is one!
+
+![wpfound](img6.PNG)
