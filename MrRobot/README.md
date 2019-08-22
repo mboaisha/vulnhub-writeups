@@ -144,6 +144,16 @@ Nice! now we know that **Elliot** is a user in this Wordpress instance. Now we u
 
 Since the Community Edition of Burp Suite throttles our Intruder module to a point where it is really slow, I explored other tools to get the job done and decided to use *Zap-Proxy*
 
+I used the fuzzer to get Elliot's password. Seeing that one value caught the highest response byte size, I decided to try that password.
+
+![elliotpassword](img10.PNG)
+
+Bingo! The credentials worked!!
+
+![inwordpress](img11.PNG)
+
+
+
 
 
 
