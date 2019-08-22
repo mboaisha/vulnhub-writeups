@@ -75,3 +75,21 @@ Viewing the page source, there is a cool ascii art but that's about it.
 </body>
 </html>
 ```
+
+Since we confirmed that this VM is mostly a LAMP stack, I decided to bring out one of my favorite tools. Enter *Nikto*
+
+Luckily, we don't have to fiddle with the tool alot in this case:
+
+```
+nikto -h http://192.168.56.103/
+```
+
+which gave us plenty of results to go through.
+
+![niktoScan](img5.PNG)
+
+The results tell us two things:
+
+* There is a [robots.txt](https://www.robotstxt.org/robotstxt.html) file
+* There is very possibly a Wordpress instance hosted
+
