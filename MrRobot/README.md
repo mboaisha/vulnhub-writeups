@@ -9,4 +9,4 @@ It's a good practice to run vulnerable virtual machines in an isolated network.A
 
 As such, it is best to host the VMs in "Host-Only" Mode in the same subnet.
 
-
+![Alt text](/images/img1.PNG?raw=true)
