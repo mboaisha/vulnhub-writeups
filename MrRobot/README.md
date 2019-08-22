@@ -123,3 +123,27 @@ uniq fsocity.dic > fsocity1.txt
 Now we look into the possible Wordpress instance, and what do you know, there is one!
 
 ![wpfound](img6.PNG)
+
+I tried couple of [default credentials](https://varyingvagrantvagrants.org/docs/en-US/default-credentials/) in hopes that it would be a misconfigured instance of Wordpress, none of them worked. However, I noticed something:
+
+![userwrong](img7.PNG)
+
+The login screen is telling us that the username is wrong. Naturally, if I give it a valid username it will tell me the password is wrong. As such, little brute forcing is in order.
+
+In this case, I used Burp Suite <insert good tutorial here.> The Intruder module is really easy to use to conduct quick bruteforce attacks. I let the Intruder run for awhile and looked at the length of the requests send back to us.
+
+![elliotfound](img8.PNG)
+
+Looks like "Elliot" yielded a different request length than the other requests.
+
+After inputting the username with gibberish password in the login page I get this:
+
+![elliotfail](img9.PNG)
+
+Nice! now we know that **Elliot** is a user in this Wordpress instance. Now we use Burp Suite's Intruder again to brute force the password.
+
+Since the Community Edition of Burp Suite throttles our Intruder module to a point where it is really slow, I explored other tools to get the job done and decided to use *Zap-Proxy*
+
+
+
+
