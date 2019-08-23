@@ -152,6 +152,39 @@ Bingo! The credentials worked!!
 
 ![inwordpress](img11.PNG)
 
+Now we need a way to get in OS-level. This can be easily done via some sort of webshell. Where do we put our webshell?
+
+Initially, I wanted to install a plug-in to be able to edit file on the web server but turns out Wordpress has an editor by default:
+
+![wpeditor](img12.PNG)
+
+In this case, I will use *weevely*, one of my favorite webshells.
+
+First we generate the webshell:
+
+![webshell](img13.png)
+
+then we copy paste the content into the 404.php page template via the editor.
+
+![pasteshell](img14.png)
+
+Now, looking at the Wordpress [source code](https://build.trac.wordpress.org/browser/branches#4.3/wp-content/themes/twentyfifteen) (hooray for open source software!) we see that the 404.php resides in this directory:
+
+```
+http://<host>/wp-content/themes/twentyfifteen/404.php
+```
+
+![wpdir](img15.PNG)
+
+
+Next, we attempt the connection to the pasted webshell:
+![whoamishell](img16.PNG)
+
+The connection was successful and it appears we are inside as **daemon**
+
+
+
+
 
 
 
