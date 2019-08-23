@@ -182,8 +182,32 @@ Next, we attempt the connection to the pasted webshell:
 
 The connection was successful and it appears we are inside as **daemon**
 
+We eventually traverse to the **home** folder and see that one user (robot) having said folder.
 
+![robotuser](img17.PNG)
 
+Looking inside the folder, we see some promising content:
+
+![inrobot](img18.PNG)
+
+We see that permissions flag for the key is:
+```
+-r--------
+```
+
+Which means that the owner of the file (which is the user **robot**) is pretty much the only user that can read the file.
+
+We see the content of the **password.raw-md5** and find the following:
+```
+robot:c3fcd3d76192e4007dfb496cca67e13b
+```
+Which appears to be the md5 hash of the user **robot**
+
+Providing [crackstation](https://crackstation.net/) with the hash proved useful as it turns out that the hash was cracked once before.
+
+```
+abcdefghijklmnopqrstuvwxyz
+```
 
 
 
