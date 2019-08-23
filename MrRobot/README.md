@@ -162,11 +162,11 @@ In this case, I will use *weevely*, one of my favorite webshells.
 
 First we generate the webshell:
 
-![webshell](img13.png)
+![webshell](img13.PNG)
 
 then we copy paste the content into the 404.php page template via the editor.
 
-![pasteshell](img14.png)
+![pasteshell](img14.PNG)
 
 Now, looking at the Wordpress [source code](https://build.trac.wordpress.org/browser/branches#4.3/wp-content/themes/twentyfifteen) (hooray for open source software!) we see that the 404.php resides in this directory:
 
@@ -195,7 +195,7 @@ We see that permissions flag for the key is:
 -r--------
 ```
 
-Which means that the owner of the file (which is the user **robot**) is pretty much the only user that can read the file.
+Which means that the owner of the file (which is the user **robot**) is pretty much the only user that can read the file. As such, we are unable to read the file as **daemon**
 
 We see the content of the **password.raw-md5** and find the following:
 ```
@@ -208,6 +208,11 @@ Providing [crackstation](https://crackstation.net/) with the hash proved useful 
 ```
 abcdefghijklmnopqrstuvwxyz
 ```
+
+We try to login with the cracked password. Turns out Weevely does not support *su*, and as a result, we cannot change user to **robot**
+
+
+
 
 
 
