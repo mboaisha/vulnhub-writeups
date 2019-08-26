@@ -235,10 +235,31 @@ After following the answer I was able to get into a shell. Still as **Daemon**. 
 
 ![suwork](img21.PNG)
 
+Now we need to go hunting for the third flag. 
 
+For this portion I referred to [g0tmi1k's Linux Privilege Escalation checklist](https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/)
 
+After going through the checklist I noticed couple of things:
 
+* There are bunch of development tools installed. i.e. Python IDLE, Perl
+* Netcat is installed
+* **root** is the only superuser in the system
+* Was able to view /etc/passwd, but am unable to view /etc/shadow
+* Found an openssh public key.
+* nmap and zenmap are somehow installed and are accessible to **robot**. The nmap version is 3.81... Which is super outdated by now.
 
+Turns out combing through ``` find / -writable -type d 2>/dev/null      # world-writeable folders ``` output was useful.
 
+That particular version of nmap has an "interactive" mode.... which happens to give root regardless of what user you use to launch it.
 
+[nmaproot](img22.PNG)
+
+Going to the root folder, we find the 3rd key:
+```
+04787ddef27c3dee1ee161b21670b4e4
+```
+
+[donner](img23.PNG)
+
+The third key concludes this boot2root.
 
