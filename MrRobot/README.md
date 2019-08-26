@@ -252,14 +252,14 @@ Turns out combing through ``` find / -writable -type d 2>/dev/null      # world-
 
 That particular version of nmap has an "interactive" mode.... which happens to give root regardless of what user you use to launch it.
 
-[nmaproot](img22.PNG)
+![nmaproot](img22.PNG)
 
 Going to the root folder, we find the 3rd key:
 ```
 04787ddef27c3dee1ee161b21670b4e4
 ```
 
-[donner](img23.PNG)
+![donner](img23.PNG)
 
 The third key concludes this boot2root.
 
