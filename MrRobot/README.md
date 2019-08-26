@@ -259,7 +259,7 @@ Going to the root folder, we find the 3rd key:
 04787ddef27c3dee1ee161b21670b4e4
 ```
 
-![donner](img23.PNG)
+![donner](img23.png)
 
 The third key concludes this boot2root.
 
