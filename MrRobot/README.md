@@ -211,6 +211,29 @@ abcdefghijklmnopqrstuvwxyz
 
 We try to login with the cracked password. Turns out Weevely does not support *su*, and as a result, we cannot change user to **robot**
 
+Will need to explore other options.
+
+I ended up using a PHP reverse shell I found packaged with Kali Linux at ```/usr/share/webshells/php```
+
+We replace the 404.php file with the new webshell, listen to port 1234 via netcat, go the page and we connect again.
+
+![othershelled](img19.PNG)
+
+Still encountered the same issue with being unable to switch users via *su*
+
+After doing some research, I stumbled upon [this answer](https://evertpot.com/189/), I proceeded to check if python is installed in the system.
+
+Sure enough, both Python 2.7 and 3 are installed on the system.
+
+![pythonc](img20.PNG)
+
+After following the answer I was able to get into a shell. Still as **Daemon**. Thankfully, *su* worked this time around. We find the key:
+
+```
+822c73956184f694993bede3eb39f959
+```
+
+![suwork](img21.PNG)
 
 
 
